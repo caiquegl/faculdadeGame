@@ -4,10 +4,7 @@ package classes;
 
 public class game1 {
     
-    
-    
-    
-    private String nome;
+     private String nome;
     
     public void game1(){
         
@@ -33,6 +30,6 @@ public class game1 {
         
     }
         
+    
+    
 }
-   
-
