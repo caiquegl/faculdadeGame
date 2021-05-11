@@ -1,23 +1,21 @@
 
 package telas;
-import classes.game1;
-/**
- *
- * @author Nicolas
- */
-public class Splash extends javax.swing.JFrame {
+import dao.UsuarioDAO;
 
-    /**
-     * Creates new form Splash
-     */
+public class Splash extends javax.swing.JFrame {
+    ControllerLogado usuarios = new ControllerLogado();
+
     public Splash() {
         initComponents();
-    }
-        public void ledados (game1 aux){
-            labelNome.setText(aux.getNome());
-            
-            
-            
+        System.out.println(usuarios.getNome());
+        labelNome.setText(usuarios.getNome());
+        UsuarioDAO dao = new UsuarioDAO();
+        
+        dao.pontuacaoMax(Integer.toString(usuarios.getId()));
+        dao.ultimaJogada(Integer.toString(usuarios.getId()));
+        mPontuacao.setText(usuarios.getMaiorPontuacao());
+        uPontuacao.setText(usuarios.getUltimaJogadaPT());
+        dateJogada.setText(usuarios.getUltimaJogadaDT());
     }
 
     
@@ -26,6 +24,9 @@ public class Splash extends javax.swing.JFrame {
     private void initComponents() {
 
         labelNome = new javax.swing.JLabel();
+        uPontuacao = new javax.swing.JLabel();
+        mPontuacao = new javax.swing.JLabel();
+        dateJogada = new javax.swing.JLabel();
         ButtonVariaveis = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -35,9 +36,24 @@ public class Splash extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(650, 560));
         getContentPane().setLayout(null);
 
-        labelNome.setText("jLabel2");
+        labelNome.setFont(new java.awt.Font("Padauk", 1, 24)); // NOI18N
         getContentPane().add(labelNome);
         labelNome.setBounds(110, 30, 150, 40);
+
+        uPontuacao.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
+        uPontuacao.setForeground(java.awt.Color.gray);
+        getContentPane().add(uPontuacao);
+        uPontuacao.setBounds(340, 460, 60, 17);
+
+        mPontuacao.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
+        mPontuacao.setForeground(java.awt.Color.gray);
+        getContentPane().add(mPontuacao);
+        mPontuacao.setBounds(160, 460, 60, 17);
+
+        dateJogada.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
+        dateJogada.setForeground(java.awt.Color.gray);
+        getContentPane().add(dateJogada);
+        dateJogada.setBounds(490, 460, 80, 17);
 
         ButtonVariaveis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 15.jpg"))); // NOI18N
         ButtonVariaveis.setText("jLabel1");
@@ -54,6 +70,7 @@ public class Splash extends javax.swing.JFrame {
         jButton1.setBounds(30, 190, 160, 180);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -102,7 +119,10 @@ public class Splash extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ButtonVariaveis;
+    private javax.swing.JLabel dateJogada;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel mPontuacao;
+    private javax.swing.JLabel uPontuacao;
     // End of variables declaration//GEN-END:variables
 }
